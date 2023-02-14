@@ -19,7 +19,7 @@ INSERT INTO employee(first_name, last_name, gender, age) VALUES('Ira', 'Frolova'
 INSERT INTO employee(first_name, last_name, gender, age) VALUES('Sergey', 'Dan', 'Male', 52);
 
 -- Get first name and last name from all records
-SELECT first_name AS "Имя", last_name AS "Фамилия" FROM employee;
+SELECT first_name AS "РРјСЏ", last_name AS "Р¤Р°РјРёР»РёСЏ" FROM employee;
 
 -- Get  all records where age less 30 or more 50
 SELECT * FROM employee e WHERE age < 30 OR age > 50;
@@ -39,13 +39,13 @@ UPDATE employee SET first_name = 'Ira' WHERE first_name LIKE 'Irina';
 UPDATE employee SET first_name = 'Anthon' WHERE first_name LIKE 'Sergey';
 
 -- Get total age for each name
-SELECT first_name AS "Имя", SUM(age) AS "Возраст" FROM employee e GROUP BY first_name;
+SELECT first_name AS "РРјСЏ", SUM(age) AS "РЎСѓРјРјР°СЂРЅС‹Р№ РІРѕР·СЂР°СЃС‚" FROM employee e GROUP BY first_name;
 
 -- Get min age for each name
-SELECT first_name AS "Имя", MIN(age) AS "Возраст" FROM employee e GROUP BY first_name; 
+SELECT first_name AS "РРјСЏ", MIN(age) AS "РњРёРЅРёРјР°Р»СЊРЅС‹Р№ РІРѕР·СЂР°СЃС‚" FROM employee e GROUP BY first_name; 
 
 -- Output the name and maximum age only for non-unique names. Sort the result by age in ascending order.
-SELECT first_name AS "Имя", MAX(age) AS "Возраст" FROM employee 
+SELECT first_name AS "РРјСЏ", MAX(age) AS "РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРѕР·СЂР°СЃС‚" FROM employee 
 WHERE first_name IN (
 	SELECT first_name FROM employee GROUP BY first_name HAVING COUNT(*) > 1
-) GROUP BY first_name ORDER BY "Возраст";
+) GROUP BY first_name ORDER BY "Р’РѕР·СЂР°СЃС‚";
